@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="174.67 24.92 26.25 29.32">
+  <defs>
+    <clipPath clipPathUnits="userSpaceOnUse" id="a">
+      <path d="M0 1080h1920V0H0Z"/>
+    </clipPath>
+    <clipPath clipPathUnits="userSpaceOnUse" id="b">
+      <path d="m957.825 731.785-32.747-33.169a3.159 3.159 0 0 1 .008-4.423l6.313-6.351a3.107 3.107 0 0 1 4.394-.005l22.631 22.673a3.113 3.113 0 0 0 4.398-.001l21.831-21.89a3.076 3.076 0 0 1 4.375.02l5.715 5.841c1.197 1.224 1.209 3.237.026 4.474l-4.091 4.279a332.021 332.021 0 0 1-4.352 4.45l-24.114 24.116a3.079 3.079 0 0 1-2.186.904 3.087 3.087 0 0 1-2.201-.918"/>
+    </clipPath>
+    <clipPath clipPathUnits="userSpaceOnUse" id="c">
+      <path d="M0 1080h1920V0H0Z"/>
+    </clipPath>
+    <clipPath clipPathUnits="userSpaceOnUse" id="d">
+      <path d="m958.02 690.331-10.548-10.612a3.669 3.669 0 0 1 0-5.151l10.331-10.394a3.616 3.616 0 0 1 5.121 0l10.547 10.613a3.666 3.666 0 0 1 0 5.15l-10.331 10.394a3.592 3.592 0 0 1-2.559 1.063 3.6 3.6 0 0 1-2.561-1.063"/>
+    </clipPath>
+  </defs>
+  <g clip-path="url(#a)" transform="matrix(.35278 0 0 -.35278 -151.349 283.504)">
+    <path d="M0 0c1.183-1.237 1.171-3.251-.026-4.475l-5.715-5.84a3.076 3.076 0 0 0-4.375-.02l-21.831 21.89a3.113 3.113 0 0 1-4.397.001l-22.632-22.673a3.108 3.108 0 0 0-4.394.004l-6.313 6.352a3.156 3.156 0 0 0-.007 4.422l32.746 33.169a3.097 3.097 0 0 0 4.388.014L-8.443 8.729a326.234 326.234 0 0 0 4.352-4.451z" style="fill:#7c7c7c;fill-opacity:1;fill-rule:nonzero;stroke:none" transform="translate(994.769 698.954)"/>
+  </g>
+  <g clip-path="url(#b)" transform="matrix(.35278 0 0 -.35278 -151.349 283.504)">
+    <path d="M0 0s8.917-12.811 6.688-31.112c16.019-18.55 16.277-19.165 18.392-19.522 2.115-.357 12.816 13.197 12.764 14.384C37.792-35.063 0 0 0 0" style="fill:#c6c6c6;fill-opacity:1;fill-rule:nonzero;stroke:none" transform="translate(960.666 732.954)"/>
+  </g>
+  <g clip-path="url(#c)" transform="matrix(.35278 0 0 -.35278 -151.349 283.504)">
+    <path d="M0 0a3.615 3.615 0 0 0-5.12 0l-10.331 10.394a3.669 3.669 0 0 0 0 5.151l10.548 10.612a3.615 3.615 0 0 0 5.12 0l10.331-10.394a3.669 3.669 0 0 0 0-5.151z" style="fill:#7c7c7c;fill-opacity:1;fill-rule:nonzero;stroke:none" transform="translate(962.923 664.174)"/>
+  </g>
+  <g clip-path="url(#d)" transform="matrix(.35278 0 0 -.35278 -151.349 283.504)">
+    <path d="M0 0c8.47-15.622 9.411-40.238-2.823-62.487-9.216-16.76.598-14.225 2.479-14.301 6.339 5.436 22.103 21.58 19.222 21.491C15.998-55.386 0 0 0 0" style="fill:#c6c6c6;fill-opacity:1;fill-rule:nonzero;stroke:none" transform="translate(960.779 726.84)"/>
+  </g>
+</svg>
