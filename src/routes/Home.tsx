@@ -1,3 +1,5 @@
-const Home = () => <h1>Bookkeeper</h1>;
+import Storefront from 'components/shop/Storefront';
+
+const Home = () => <Storefront />;
 
 export default Home;

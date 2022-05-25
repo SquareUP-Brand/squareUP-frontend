@@ -1,5 +1,5 @@
 import { createGlobalStyle } from 'styled-components';
-import Leixo from '/fonts/LEIXO-DEMO.woff';
+import Leixo from 'fonts/LEIXO-DEMO.woff';
 
 export default createGlobalStyle`
   @font-face {
@@ -7,6 +7,7 @@ export default createGlobalStyle`
     src: url(${Leixo});
   }
   body {
+    color: whitesmoke;
     margin: 0;
     padding: 0;
     background: #232323;

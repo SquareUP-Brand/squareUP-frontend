@@ -1,7 +1,10 @@
 import { configureStore } from '@reduxjs/toolkit';
+import shopReducer from './shopSlice';
 
 const store = configureStore({
-  reducer: {},
+  reducer: {
+    shop: shopReducer,
+  },
 });
 
 export default store;

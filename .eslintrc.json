@@ -38,6 +38,13 @@
       }
     ],
     //disabled because vite uses "absolute" path for public folder
-    "import/no-absolute-path": "off"
+    "import/no-absolute-path": "off",
+    "no-param-reassign": ["error", { "props": false }],
+    "implicit-arrow-linebreak": "off",
+    "function-paren-newline": "off",
+    "arrow-parens": ["error", "as-needed"],
+    "no-shadow": ["off"],
+    "@typescript-eslint/no-shadow": ["off"]
+
   }
 }
