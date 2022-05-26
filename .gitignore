@@ -25,4 +25,3 @@ dist-ssr
 
 # Environmnet Ignores
 .env*
-Test.tsx
