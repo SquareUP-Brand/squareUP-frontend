@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { FaChevronDown, FaChevronUp } from 'react-icons/fa';
-import { ChangeEvent } from 'react';
+import { ChangeEvent, Dispatch, SetStateAction } from 'react';
 
 const InputStepperContainer = styled.div`
   display: flex;
@@ -35,11 +35,15 @@ const StepperContainer = styled.div`
   padding-inline-end: 0.3em;
 `;
 
-const InputStepper = ({ state }) => {
+interface Props {
+  state: [quantity: number, setQuantity: Dispatch<SetStateAction<number>>]
+}
+
+const InputStepper = ({ state }:Props) => {
   const [quantity, setQuantity] = state;
 
-  const onChange = (event: { target: HTMLInputElement }) => {
-    setQuantity(event?.target?.value);
+  const onChange = (event: ChangeEvent<HTMLInputElement>) => {
+    setQuantity(event.target.value as unknown as number);
   };
 
   return (

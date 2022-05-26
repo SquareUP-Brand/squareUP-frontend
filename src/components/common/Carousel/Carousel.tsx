@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 import styled from 'styled-components';
+import CarouselSliderImage from './CarouselSliderImage';
+import PreviewImage from './PreviewImage';
 
 const CarouselContainer = styled.div`
   display: flex;
@@ -10,12 +12,6 @@ const CarouselContainer = styled.div`
     flex-direction: column;
     align-items: center;
   }
-`;
-
-const CarouselSliderImage = styled.img`
-  display: ${props => (props.index === props.currentIndex ? 'initial' : 'none')};
-  max-width: 100%;
-  max-height: 40em;
 `;
 
 const PreviewImages = styled.div`
@@ -32,15 +28,15 @@ const PreviewImages = styled.div`
   }
 `;
 
-const PreviewImage = styled.img`
-  border: ${props => (props.index === props.currentIndex ? '.5em solid #555' : '')};
-`;
+interface Props {
+  imageArray : string[] | undefined
+}
 
-const Right = styled(FaChevronRight)``;
+const Carousel = ({ imageArray }:Props) => {
+  // TODO add error handling / console.error() call
+  if(!imageArray) return null;
 
-const Left = styled(FaChevronLeft)``;
 
-const Carousel = ({ imageArray }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const nextImage = () =>
     setCurrentIndex(Math.min(imageArray.length - 1, currentIndex + 1));
@@ -59,7 +55,7 @@ const Carousel = ({ imageArray }) => {
         />
       ))}
       <PreviewImages>
-        <Left onClick={previousImage} />
+        <FaChevronLeft onClick={previousImage} />
         {imageArray.map((image, index) => (
           <PreviewImage
             onClick={() => setCurrentIndex(index)}
@@ -69,7 +65,7 @@ const Carousel = ({ imageArray }) => {
             key={image}
           />
         ))}
-        <Right onClick={nextImage} />
+        <FaChevronRight onClick={nextImage} />
       </PreviewImages>
     </CarouselContainer>
   );

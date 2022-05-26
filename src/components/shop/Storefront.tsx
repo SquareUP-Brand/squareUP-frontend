@@ -1,6 +1,4 @@
-import { useEffect } from 'react';
-import { useAppDispatch, useAppSelector } from 'redux/hooks';
-import { fetchAllProducts } from 'redux/shopSlice';
+import {  useAppSelector } from 'redux/hooks';
 import styled from 'styled-components';
 import ProductPreview from './product/ProductPreview/ProductPreview';
 

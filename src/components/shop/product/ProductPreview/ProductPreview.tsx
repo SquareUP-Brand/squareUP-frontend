@@ -1,22 +1,25 @@
-import Button from 'components/common/Button';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+import { StateProduct } from 'redux/shopSlice';
 import styled from 'styled-components';
 import ProductPreviewImage from './ProductPreviewImage';
 
-const ProductPreviewContainer = styled.div``;
+const ProductPreviewContainer = styled.div`
+  h3 {
+    :hover {
+      text-decoration: underline;
+      cursor: pointer;
+    }
+  }
+`;
 
-const ProductPreview = ({ images, title, price, id }) => {
+const ProductPreview = ({ images, title, price, id }:Pick<StateProduct, 'images' | 'title' | 'price' | 'id'>) => {
   const navigate = useNavigate();
 
   return (
     <ProductPreviewContainer onClick={() => navigate(`/products/${id}`)}>
       <ProductPreviewImage images={images} />
-      <h3>
-        {title}
-        {' '}
-        {price}
-      </h3>
-      <Button>Buy</Button>
+      <h3>{title}</h3>
+      <h4>{price}</h4>
     </ProductPreviewContainer>
   );
 };

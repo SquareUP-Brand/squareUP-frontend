@@ -7,4 +7,4 @@ TODO:
 1. implement other pages
 1. implement checkout
     * use a new window onClick
-1. 
+1. use an animation package instead of css transition

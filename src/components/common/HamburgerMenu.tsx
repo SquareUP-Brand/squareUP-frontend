@@ -8,6 +8,9 @@ const Container = styled.nav`
   flex-wrap: wrap;
   align-content: flex-start;
   align-items: center;
+  @media (min-width: 1415px) {
+    display: none;
+  }
 `;
 
 const MenuText = styled.h3`
