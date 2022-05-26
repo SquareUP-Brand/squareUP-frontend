@@ -1,4 +1,6 @@
-import {writeFileSync} from 'node:fs'
+import {writeFileSync, existsSync} from 'node:fs'
+
+const file = "./src/routes/Test.tsx";
 
 const backup = 
 `const Test = () => null;
@@ -6,4 +8,4 @@ const backup =
 export default Test;
 `;
 
-writeFileSync("./src/routes/Test.tsx",backup);
+if(existsSync(file)) writeFileSync(file,backup);
