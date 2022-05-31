@@ -1,3 +1,4 @@
 commitlint.config.ts
 vite.config.ts
 scripts
+generated

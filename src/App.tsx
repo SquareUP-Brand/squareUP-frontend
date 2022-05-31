@@ -9,15 +9,16 @@ const AppPadding = styled.main`
   min-height: 82vh;
 `;
 
+
 const App = () => (
-  <>
-    <Header />
-    <HamburgerMenu />
-    <AppPadding>
-      <Outlet />
-    </AppPadding>
-    <Footer />
-  </>
-);
+    <>
+      <Header />
+      <HamburgerMenu />
+      <AppPadding>
+        <Outlet />
+      </AppPadding>
+      <Footer />
+    </>
+  );
 
 export default App;

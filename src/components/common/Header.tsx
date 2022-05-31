@@ -42,14 +42,16 @@ const StyledLogo = styled(Logo)`
   }
 `;
 
+
 const StyledNavLink = styled(NavLink)`
   padding: 0 0.5rem;
-  transition: text-decoration 2s;
+  transition: text-decoration 0.5s;
   :visited {
     color: unset;
     text-decoration: none;
   }
   :link {
+    color: unset;
     text-decoration: none;
   }
   :hover {
@@ -92,7 +94,7 @@ const Header = () => {
       </Middle>
       <Right>
         <RiShoppingBag3Line />
-        <Badge>{cartCount}</Badge>
+        <Badge>{cartCount || ''}</Badge>
       </Right>
     </HeaderContainer>
   );
