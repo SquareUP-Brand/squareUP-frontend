@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 import CartQuantityController from 'components/shop/product/CartQuantityController';
 import { useParams } from 'react-router-dom';
-import { useAppSelector } from 'redux/hooks';
 import Carousel from 'components/common/Carousel';
+import { useGetProductByHandleQuery } from 'services/shopifyApi';
 
 const ProductContainer = styled.div`
   display: flex;
@@ -21,21 +21,32 @@ const Description = styled.p`
 
 const Product = () => {
   const { handle } = useParams();
-  const product = useAppSelector(state =>
-    state.shop.products.find(product => product.handle === handle)
-  );
+  const { data, isFetching } = useGetProductByHandleQuery({
+    handle: handle!,
+  });
+  if (isFetching) return null;
 
-  const imageArray = product?.images.map(image => image.src);
+  // This is a weird typescript issue I think
+  const {
+    title,
+    description,
+    images: { nodes: imageArray },
+    variants: {
+      nodes: [
+        {
+          priceV2: { amount: price },
+        },
+      ],
+    },
+  } = data!.productByHandle;
 
-  return product ? (
+  return (
     <ProductContainer>
-      <Carousel imageArray={imageArray} />
-      <Headline>{`${product.title} ${product.price}`}</Headline>
-      <Description>{product.description}</Description>
+      <Carousel imageArray={imageArray.map(image => image.url)} />
+      <Headline>{`${title} $${price}`}</Headline>
+      <Description>{description}</Description>
       <CartQuantityController />
     </ProductContainer>
-  ) : (
-    null
   );
 };
 

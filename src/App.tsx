@@ -1,8 +1,8 @@
-import Footer from 'components/common/Footer';
+import Footer from 'components/common/layout/Footer';
 import HamburgerMenu from 'components/common/HamburgerMenu';
 import { Outlet } from 'react-router-dom';
 import styled from 'styled-components';
-import Header from './components/common/Header';
+import Header from './components/common/layout/Header';
 
 const AppPadding = styled.main`
   padding: 5em;

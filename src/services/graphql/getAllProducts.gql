@@ -1,0 +1,24 @@
+query getAllProducts {
+  products(first: 250) {
+    nodes {
+      id
+      description
+      handle
+      title
+      images(first: 10) {
+        nodes {
+          url
+        }
+      }
+      variants(first: 1) {
+        nodes {
+          id
+          priceV2 {
+            amount
+            currencyCode
+          }
+        }
+      }
+    }
+  }
+}

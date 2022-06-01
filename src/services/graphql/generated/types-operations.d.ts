@@ -6877,7 +6877,29 @@ export enum WeightUnit {
   Pounds = 'POUNDS'
 }
 
-export type GetStoreNameQueryVariables = Exact<{ [key: string]: never; }>;
+export type CreateCartMutationVariables = Exact<{
+  quantity: Scalars['Int'];
+  merchandiseId: Scalars['ID'];
+}>;
 
 
-export type GetStoreNameQuery = { __typename?: 'QueryRoot', shop: { __typename?: 'Shop', name: string } };
+export type CreateCartMutation = { __typename?: 'Mutation', cartCreate?: { __typename?: 'CartCreatePayload', cart?: { __typename?: 'Cart', id: string, createdAt: any } | null } | null };
+
+export type GetAllProductsQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type GetAllProductsQuery = { __typename?: 'QueryRoot', products: { __typename?: 'ProductConnection', nodes: Array<{ __typename?: 'Product', id: string, description: string, handle: string, title: string, images: { __typename?: 'ImageConnection', nodes: Array<{ __typename?: 'Image', url: any }> }, variants: { __typename?: 'ProductVariantConnection', nodes: Array<{ __typename?: 'ProductVariant', id: string, priceV2: { __typename?: 'MoneyV2', amount: any, currencyCode: CurrencyCode } }> } }> } };
+
+export type GetProductByHandleQueryVariables = Exact<{
+  handle: Scalars['String'];
+}>;
+
+
+export type GetProductByHandleQuery = { __typename?: 'QueryRoot', productByHandle?: { __typename?: 'Product', description: string, title: string, variants: { __typename?: 'ProductVariantConnection', nodes: Array<{ __typename?: 'ProductVariant', id: string, priceV2: { __typename?: 'MoneyV2', amount: any, currencyCode: CurrencyCode } }> }, images: { __typename?: 'ImageConnection', nodes: Array<{ __typename?: 'Image', url: any }> } } | null };
+
+export type IsCartCreatedQueryVariables = Exact<{
+  id: Scalars['ID'];
+}>;
+
+
+export type IsCartCreatedQuery = { __typename?: 'QueryRoot', cart?: { __typename?: 'Cart', id: string, createdAt: any } | null };

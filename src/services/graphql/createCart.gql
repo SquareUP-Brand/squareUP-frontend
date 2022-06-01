@@ -1,0 +1,15 @@
+mutation createCart(
+  $quantity: Int!
+  $merchandiseId: ID!
+) {
+  cartCreate(
+    input: {
+      lines: [{ quantity: $quantity, merchandiseId: $merchandiseId }]
+    }
+  ) {
+    cart {
+      id
+      createdAt
+    }
+  }
+}

@@ -1,0 +1,6 @@
+query isCartCreated($id: ID!){
+    cart(id: $id){
+        id
+        createdAt
+    }
+}

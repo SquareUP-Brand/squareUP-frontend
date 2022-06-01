@@ -1,11 +1,11 @@
-import Product from 'routes/Product';
+import Product from 'pages/Product';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { lazy } from 'react';
-import Cart from 'routes/Cart';
+import Cart from 'pages/Cart';
 import App from './App';
-import Home from './routes/Home';
+import Home from './pages/Home';
 
-const TestPage = lazy(() => import('./routes/Test'));
+const TestPage = lazy(() => import('./pages/Test'));
 
 export default () => (
   <BrowserRouter>

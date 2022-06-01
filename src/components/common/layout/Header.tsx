@@ -2,7 +2,6 @@ import styled from 'styled-components';
 import { ReactComponent as Logo } from 'assets/logo.svg';
 import { RiShoppingBag3Line } from 'react-icons/ri';
 import { NavLink } from 'react-router-dom';
-import { useAppSelector } from 'redux/hooks';
 
 const HeaderContainer = styled.header`
   height: 6rem;
@@ -78,7 +77,7 @@ const Badge = styled.span`
 `;
 
 const Header = () => {
-  const cartCount = useAppSelector(state => state.shop.cartCount);
+  const cartCount = 0; // FIXME 
 
   return (
     <HeaderContainer>

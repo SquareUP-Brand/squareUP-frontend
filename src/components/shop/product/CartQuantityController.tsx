@@ -1,8 +1,6 @@
 import Button from 'components/common/Button';
 import { FormEvent, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useAppDispatch } from 'redux/hooks';
-import { addToCart } from 'redux/shopSlice';
 import styled from 'styled-components';
 import InputStepper from '../../common/InputStepper';
 
@@ -17,9 +15,11 @@ const AddToCartButton = styled(Button)`
   margin-inline-start: 1em;
 `;
 
+// TODO after add to cart, say added and update count
+// Button color background-color: #686868;
+
 const CartQuantityController = () => {
   const quantityState = useState(0);
-  const dispatch = useAppDispatch();
   const navigate = useNavigate();
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {

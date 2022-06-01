@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { StateProduct } from 'redux/shopSlice';
 import styled from 'styled-components';
 
 const ProductImage = styled.img`
@@ -13,21 +12,21 @@ const ProductImage = styled.img`
   }
 `;
 
-const ProductPreviewImage = ({ images }:Pick<StateProduct, 'images'>) => {
-  const [back, front] = [images[0].src, images[1].src];
-  const [image, setImage] = useState({ src: back, alt: 'back' });
+const ProductPreviewImage = ({ images }) => {
+  const [back, front] = [images[0].url, images[1].url];
+  const [image, setImage] = useState({ url: back, alt: 'back' });
   return (
     <ProductImage
-      src={image.src}
+      src={image.url}
       alt={image.alt}
       onMouseEnter={() => {
         setTimeout(() => {
-          setImage({ src: front, alt: 'front' });
+          setImage({ url: front, alt: 'front' });
         }, 250);
       }}
       onMouseLeave={() => {
         setTimeout(() => {
-          setImage({ src: back, alt: 'back' });
+          setImage({ url: back, alt: 'back' });
         }, 250);
       }}
     />
