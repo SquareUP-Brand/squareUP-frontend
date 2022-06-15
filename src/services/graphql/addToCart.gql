@@ -1,0 +1,7 @@
+mutation addToCart($cartId: ID!, $lines: [CartLineInput!]!) {
+  cartLinesAdd(cartId: $cartId, lines: $lines){
+      cart {
+          updatedAt
+      }
+  }
+}

@@ -2,11 +2,18 @@ import * as Types from 'services/graphql/generated/types-operations';
 
 import { api } from 'services/utils/shopifyBaseApi';
 
+export const AddToCartDocument = `
+    mutation addToCart($cartId: ID!, $lines: [CartLineInput!]!) {
+  cartLinesAdd(cartId: $cartId, lines: $lines) {
+    cart {
+      updatedAt
+    }
+  }
+}
+    `;
 export const CreateCartDocument = `
-    mutation createCart($quantity: Int!, $merchandiseId: ID!) {
-  cartCreate(
-    input: {lines: [{quantity: $quantity, merchandiseId: $merchandiseId}]}
-  ) {
+    mutation createCart {
+  cartCreate {
     cart {
       id
       createdAt
@@ -62,18 +69,13 @@ export const GetProductByHandleDocument = `
   }
 }
     `;
-export const IsCartCreatedDocument = `
-    query isCartCreated($id: ID!) {
-  cart(id: $id) {
-    id
-    createdAt
-  }
-}
-    `;
 
 const injectedRtkApi = api.injectEndpoints({
   endpoints: (build) => ({
-    createCart: build.mutation<Types.CreateCartMutation, Types.CreateCartMutationVariables>({
+    addToCart: build.mutation<Types.AddToCartMutation, Types.AddToCartMutationVariables>({
+      query: (variables) => ({ document: AddToCartDocument, variables })
+    }),
+    createCart: build.mutation<Types.CreateCartMutation, Types.CreateCartMutationVariables | void>({
       query: (variables) => ({ document: CreateCartDocument, variables })
     }),
     getAllProducts: build.query<Types.GetAllProductsQuery, Types.GetAllProductsQueryVariables | void>({
@@ -82,12 +84,9 @@ const injectedRtkApi = api.injectEndpoints({
     getProductByHandle: build.query<Types.GetProductByHandleQuery, Types.GetProductByHandleQueryVariables>({
       query: (variables) => ({ document: GetProductByHandleDocument, variables })
     }),
-    isCartCreated: build.query<Types.IsCartCreatedQuery, Types.IsCartCreatedQueryVariables>({
-      query: (variables) => ({ document: IsCartCreatedDocument, variables })
-    }),
   }),
 });
 
 export { injectedRtkApi as api };
-export const { useCreateCartMutation, useGetAllProductsQuery, useLazyGetAllProductsQuery, useGetProductByHandleQuery, useLazyGetProductByHandleQuery, useIsCartCreatedQuery, useLazyIsCartCreatedQuery } = injectedRtkApi;
+export const { useAddToCartMutation, useCreateCartMutation, useGetAllProductsQuery, useLazyGetAllProductsQuery, useGetProductByHandleQuery, useLazyGetProductByHandleQuery } = injectedRtkApi;
 

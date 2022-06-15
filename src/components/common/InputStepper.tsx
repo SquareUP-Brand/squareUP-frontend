@@ -19,11 +19,9 @@ const QuantityBox = styled.input`
   color: whitesmoke;
   text-align: center;
   font-weight: bold;
+  -moz-appearance: textfield;
+  ::-webkit-outer-spin-button,
   ::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
-  }
-  ::-webkit-outer-spin-button {
     -webkit-appearance: none;
     margin: 0;
   }

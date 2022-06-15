@@ -1,4 +1,5 @@
-import { useGetAllProductsQuery } from 'services/shopifyApi'; 
+import { useNavigate } from 'react-router-dom';
+import { useGetAllProductsQuery } from 'services/shopifyApi';
 import styled from 'styled-components';
 import ProductPreview from '../components/shop/product/ProductPreview/ProductPreview';
 
@@ -10,11 +11,13 @@ const Container = styled.div`
 `;
 
 const Home = () => {
-  const {data , isFetching} = useGetAllProductsQuery();
-  if (isFetching) return null;
+  const { data, isFetching } = useGetAllProductsQuery();
+  const navigate = useNavigate();
 
-  const {nodes : products} = data!.products;
-    
+  if (isFetching) return null;
+  const { nodes: products } = data!.products;
+
+  if (products.length === 0) navigate(`/products/${products[0].handle}`);
 
   return (
     <Container>

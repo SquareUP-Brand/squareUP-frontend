@@ -137,7 +137,7 @@ export type Article = HasMetafields & Node & OnlineStorePublishable & {
   metafield?: Maybe<Metafield>;
   /**
    * A paginated list of metafields associated with the resource.
-   * @deprecated The `metafields` field will be removed in the future in favor of using [aliases](https://graphql.org/learn/queries/#aliases) with the `metafield` field.
+   * @deprecated As of 2022-07, the paginated `metafields` field has been repurposed to require a list of metafield identifiers.
    *
    */
   metafields: MetafieldConnection;
@@ -325,7 +325,7 @@ export type Blog = HasMetafields & Node & OnlineStorePublishable & {
   metafield?: Maybe<Metafield>;
   /**
    * A paginated list of metafields associated with the resource.
-   * @deprecated The `metafields` field will be removed in the future in favor of using [aliases](https://graphql.org/learn/queries/#aliases) with the `metafield` field.
+   * @deprecated As of 2022-07, the paginated `metafields` field has been repurposed to require a list of metafield identifiers.
    *
    */
   metafields: MetafieldConnection;
@@ -1617,7 +1617,7 @@ export type Collection = HasMetafields & Node & OnlineStorePublishable & {
   metafield?: Maybe<Metafield>;
   /**
    * A paginated list of metafields associated with the resource.
-   * @deprecated The `metafields` field will be removed in the future in favor of using [aliases](https://graphql.org/learn/queries/#aliases) with the `metafield` field.
+   * @deprecated As of 2022-07, the paginated `metafields` field has been repurposed to require a list of metafield identifiers.
    *
    */
   metafields: MetafieldConnection;
@@ -2724,7 +2724,7 @@ export type Customer = HasMetafields & {
   metafield?: Maybe<Metafield>;
   /**
    * A paginated list of metafields associated with the resource.
-   * @deprecated The `metafields` field will be removed in the future in favor of using [aliases](https://graphql.org/learn/queries/#aliases) with the `metafield` field.
+   * @deprecated As of 2022-07, the paginated `metafields` field has been repurposed to require a list of metafield identifiers.
    *
    */
   metafields: MetafieldConnection;
@@ -3445,7 +3445,7 @@ export type HasMetafields = {
   metafield?: Maybe<Metafield>;
   /**
    * A paginated list of metafields associated with the resource.
-   * @deprecated The `metafields` field will be removed in the future in favor of using [aliases](https://graphql.org/learn/queries/#aliases) with the `metafield` field.
+   * @deprecated As of 2022-07, the paginated `metafields` field has been repurposed to require a list of metafield identifiers.
    *
    */
   metafields: MetafieldConnection;
@@ -5007,7 +5007,7 @@ export type Order = HasMetafields & Node & {
   metafield?: Maybe<Metafield>;
   /**
    * A paginated list of metafields associated with the resource.
-   * @deprecated The `metafields` field will be removed in the future in favor of using [aliases](https://graphql.org/learn/queries/#aliases) with the `metafield` field.
+   * @deprecated As of 2022-07, the paginated `metafields` field has been repurposed to require a list of metafield identifiers.
    *
    */
   metafields: MetafieldConnection;
@@ -5284,7 +5284,7 @@ export type Page = HasMetafields & Node & OnlineStorePublishable & {
   metafield?: Maybe<Metafield>;
   /**
    * A paginated list of metafields associated with the resource.
-   * @deprecated The `metafields` field will be removed in the future in favor of using [aliases](https://graphql.org/learn/queries/#aliases) with the `metafield` field.
+   * @deprecated As of 2022-07, the paginated `metafields` field has been repurposed to require a list of metafield identifiers.
    *
    */
   metafields: MetafieldConnection;
@@ -5504,7 +5504,7 @@ export type Product = HasMetafields & Node & OnlineStorePublishable & {
   metafield?: Maybe<Metafield>;
   /**
    * A paginated list of metafields associated with the resource.
-   * @deprecated The `metafields` field will be removed in the future in favor of using [aliases](https://graphql.org/learn/queries/#aliases) with the `metafield` field.
+   * @deprecated As of 2022-07, the paginated `metafields` field has been repurposed to require a list of metafield identifiers.
    *
    */
   metafields: MetafieldConnection;
@@ -5852,7 +5852,7 @@ export type ProductVariant = HasMetafields & Node & {
   metafield?: Maybe<Metafield>;
   /**
    * A paginated list of metafields associated with the resource.
-   * @deprecated The `metafields` field will be removed in the future in favor of using [aliases](https://graphql.org/learn/queries/#aliases) with the `metafield` field.
+   * @deprecated As of 2022-07, the paginated `metafields` field has been repurposed to require a list of metafield identifiers.
    *
    */
   metafields: MetafieldConnection;
@@ -6491,7 +6491,7 @@ export type Shop = HasMetafields & Node & {
   metafield?: Maybe<Metafield>;
   /**
    * A paginated list of metafields associated with the resource.
-   * @deprecated The `metafields` field will be removed in the future in favor of using [aliases](https://graphql.org/learn/queries/#aliases) with the `metafield` field.
+   * @deprecated As of 2022-07, the paginated `metafields` field has been repurposed to require a list of metafield identifiers.
    *
    */
   metafields: MetafieldConnection;
@@ -6877,10 +6877,15 @@ export enum WeightUnit {
   Pounds = 'POUNDS'
 }
 
-export type CreateCartMutationVariables = Exact<{
-  quantity: Scalars['Int'];
-  merchandiseId: Scalars['ID'];
+export type AddToCartMutationVariables = Exact<{
+  cartId: Scalars['ID'];
+  lines: Array<CartLineInput> | CartLineInput;
 }>;
+
+
+export type AddToCartMutation = { __typename?: 'Mutation', cartLinesAdd?: { __typename?: 'CartLinesAddPayload', cart?: { __typename?: 'Cart', updatedAt: any } | null } | null };
+
+export type CreateCartMutationVariables = Exact<{ [key: string]: never; }>;
 
 
 export type CreateCartMutation = { __typename?: 'Mutation', cartCreate?: { __typename?: 'CartCreatePayload', cart?: { __typename?: 'Cart', id: string, createdAt: any } | null } | null };
@@ -6896,10 +6901,3 @@ export type GetProductByHandleQueryVariables = Exact<{
 
 
 export type GetProductByHandleQuery = { __typename?: 'QueryRoot', productByHandle?: { __typename?: 'Product', description: string, title: string, variants: { __typename?: 'ProductVariantConnection', nodes: Array<{ __typename?: 'ProductVariant', id: string, priceV2: { __typename?: 'MoneyV2', amount: any, currencyCode: CurrencyCode } }> }, images: { __typename?: 'ImageConnection', nodes: Array<{ __typename?: 'Image', url: any }> } } | null };
-
-export type IsCartCreatedQueryVariables = Exact<{
-  id: Scalars['ID'];
-}>;
-
-
-export type IsCartCreatedQuery = { __typename?: 'QueryRoot', cart?: { __typename?: 'Cart', id: string, createdAt: any } | null };
